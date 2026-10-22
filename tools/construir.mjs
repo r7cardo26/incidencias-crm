@@ -1,0 +1,30 @@
+import {readFile,writeFile,mkdir,copyFile,cp} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+import {dirname,resolve,join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
+const project=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const args=process.argv.slice(2),option=args.indexOf('--data-plugin');
+if(option<0||!args[option+1])throw new Error('Falta --data-plugin con la ruta del plugin Data instalado.');
+const plugin=resolve(args[option+1]);
+if(!existsSync(join(plugin,'scripts/data-app.mjs')))throw new Error('La ruta no contiene el constructor de Data.');
+const snapshotPath=join(project,'src/data.json');
+const snapshot=JSON.parse((await readFile(snapshotPath,'utf8')).replace(/^\uFEFF/,''));
+snapshot.buildStatus='complete';
+await writeFile(snapshotPath,JSON.stringify(snapshot,null,2)+'\n','utf8');
+const result=spawnSync(process.execPath,[join(plugin,'scripts/data-app.mjs'),'build','--project-dir',project,'--separate-data'],{stdio:'inherit',env:{...process.env,CODEX_SESSION_ID:'',CODEX_THREAD_ID:''}});
+if(result.status!==0)process.exit(result.status||1);
+await mkdir(join(project,'dist/evidencias'),{recursive:true});
+await cp(join(project,'evidencias'),join(project,'dist/evidencias'),{recursive:true});
+const manifest=JSON.parse(await readFile(join(project,'dist/data-app-build.json'),'utf8'));
+const docs=join(project,'docs');
+await mkdir(docs,{recursive:true});
+await copyFile(join(project,'dist/index.html'),join(docs,'index.html'));
+const {readdir}=await import('node:fs/promises');
+for(const name of await readdir(join(project,'dist'))){
+  if(name.startsWith('snapshot.')&&name.endsWith('.json'))await copyFile(join(project,'dist',name),join(docs,name));
+}
+await copyFile(join(project,'dist/data-app-build.json'),join(docs,'data-app-build.json'));
+await cp(join(project,'evidencias'),join(docs,'evidencias'),{recursive:true});
+await writeFile(join(docs,'.nojekyll'),'','utf8');
+console.log(JSON.stringify({publication:docs,snapshotSha256:manifest.snapshotSha256,complete:true}));

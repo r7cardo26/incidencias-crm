@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.openai/
+.data-app-offline/
+.data-plugin-version
+__pycache__/
+*.pyc
+*.log
+validacion_exportacion.json
+tools/__pycache__/

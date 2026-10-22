@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.jpg -text
+*.jpeg -text
+*.png -text
+docs/index.html -text
+docs/snapshot.*.json -text
+src/data.json -text
