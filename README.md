@@ -53,3 +53,9 @@ Para una construcción independiente del plugin se incluye el código React y el
 - `docs/index.html`, `docs/snapshot.*.json`, `docs/evidencias/`: publicación estática verificada.
 
 La fecha de generación del sitio y la última lectura del registro son distintas. Para conocer la vigencia de los datos, revisar siempre la cabecera de la web.
+
+## Presentación normalizada y línea de tiempo
+
+La presentación unifica `alex`/`Alex`, responsables vacíos (`Sin asignar`) y prioridades vacías (`Sin definir`). Cada incidencia tiene un resultado excluyente: Cumplida, Abierta · vencida, Abierta · en plazo o Abierta · sin plazo. Reprogramada es una condición adicional. Las etapas, textos, valores originales y fechas de lectura permanecen en el snapshot revisado.
+
+La pestaña Línea de tiempo conserva el identificador `plazos` y sus filtros. La vista Por incidencia compara ingreso, plazo original, plazo vigente y solución informada en una escala común. El intervalo no representa trabajo continuo ni acredita un historial de etapas. La vista Hechos por fecha reúne los eventos documentados y separa los que no tienen fecha. Los compromisos no se usan como fecha del acuerdo. Cada caso o marcador abre el detalle con su evidencia.
