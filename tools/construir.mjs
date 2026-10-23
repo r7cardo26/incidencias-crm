@@ -8,6 +8,8 @@ const args=process.argv.slice(2),option=args.indexOf('--data-plugin');
 if(option<0||!args[option+1])throw new Error('Falta --data-plugin con la ruta del plugin Data instalado.');
 const plugin=resolve(args[option+1]);
 if(!existsSync(join(plugin,'scripts/data-app.mjs')))throw new Error('La ruta no contiene el constructor de Data.');
+const normalization=spawnSync(process.execPath,[join(project,'tools/normalizar_opciones.mjs')],{stdio:'inherit'});
+if(normalization.status!==0)process.exit(normalization.status||1);
 const snapshotPath=join(project,'src/data.json');
 const snapshot=JSON.parse((await readFile(snapshotPath,'utf8')).replace(/^\uFEFF/,''));
 snapshot.buildStatus='complete';

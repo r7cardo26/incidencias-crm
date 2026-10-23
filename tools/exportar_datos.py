@@ -62,9 +62,9 @@ for r in data['Incidencias']:
     original = next((c['plazo'] for c in versions if c['plazo']), deadline)
     timing = 'Cumplida' if fulfilled else 'Sin plazo' if not deadline else 'Vencida' if deadline < cutoff else 'Vence al corte' if deadline == cutoff else 'En plazo'
     cases.append(dict(id=r['CasoID'], numero=r['NumeroOrigen'], tipo=text(r['Tipo']), asunto=text(r['Asunto']),
-        modulo=text(r['ModuloFuente']) or 'Por clasificar', prioridad=text(r['PrioridadFuente']) or 'Sin prioridad',
-        responsable=text(r['ResponsableFuente']) or 'Sin responsable', etapa=text(r['EstadoFuente']) or 'Sin etapa',
-        situacion=r['SituacionFuente'], cumplida=fulfilled, bloqueante=r['BloqueanteFuente'] == 'Sí',
+        modulo=text(r['ModuloFuente']), prioridad=text(r['PrioridadFuente']),
+        responsable=text(r['ResponsableFuente']), etapa=text(r['EstadoFuente']),
+        situacion=r['SituacionFuente'], cumplida=fulfilled, bloqueante=r['BloqueanteFuente'] == 'Sí', alertaFuente=text(r.get('AlertaFuenteAlCorte')),
         ingreso=date(r['FechaIngreso']), plazo=deadline, plazoOriginal=original, solucion=date(r['FechaSolucionInformada']),
         plazoEstado=timing, reprogramada=rescheduled, detalle=text(d.get('DetalleFuente')),
         accion=text(d.get('AccionSolicitada')), soporte=text(d.get('ComentarioSoporte')),
@@ -147,7 +147,7 @@ db_hash = hashlib.sha256(DB_PATH.read_bytes()).hexdigest()
 source = dict(label='Consolidado de incidencias CRM', provider='Consolidado local de Google Sheets y documentación',
     files=['Base_Incidencias_CRM_2026-10-21.xlsx', 'incidencias.sqlite3', 'registro_evidencias_whatsapp.csv'],
     executedAt=meta['source_read_at'], timezone='America/Lima', period={'from':min(r['ingreso'] for r in cases if r['ingreso']), 'to':cutoff},
-    evidenceFlow=[dict(title='Registro operativo', detail='Última lectura del registro: ' + read_at + '. No se ha vuelto a consultar Google Sheets al construir esta web.'),
+    evidenceFlow=[dict(title='Registro operativo', detail='Última lectura del registro: ' + read_at + '. La lectura procede de una copia descargada del registro; el original permanece intacto.'),
         dict(title='Consolidación', detail='Una fila por CasoID; etapas y situación conservadas literalmente. Unión de detalles por CasoID; fotografías por SHA256 y CasoID.'),
         dict(title='Copia web', detail='Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: ' + db_hash)],
     caveats=['Los cambios de etapa anteriores al seguimiento no forman un historial completo.',

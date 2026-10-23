@@ -4,13 +4,14 @@
   "title": "Incidencias CRM",
   "status": "reviewed",
   "buildStatus": "complete",
-  "generatedAt": "2026-10-22T20:29:53.144190+00:00",
+  "generatedAt": "2026-10-23T21:26:47.507656+00:00",
   "readOnly": true,
   "filters": [
     {
       "id": "situacion",
-      "field": "situacion",
       "label": "Situación",
+      "group": "source",
+      "field": "situacionCategoria",
       "defaultValue": "all",
       "queryIds": [
         "incidencias"
@@ -18,17 +19,19 @@
     },
     {
       "id": "etapa",
-      "field": "etapa",
       "label": "Etapa",
+      "group": "source",
+      "field": "etapaCategoria",
       "defaultValue": "all",
       "queryIds": [
         "incidencias"
       ]
     },
     {
-      "id": "modulo",
-      "field": "modulo",
-      "label": "Módulo",
+      "id": "tipo",
+      "label": "Tipo",
+      "group": "source",
+      "field": "tipoCategoria",
       "defaultValue": "all",
       "queryIds": [
         "incidencias"
@@ -36,8 +39,39 @@
     },
     {
       "id": "prioridad",
-      "field": "prioridad",
       "label": "Prioridad",
+      "group": "source",
+      "field": "prioridadCategoria",
+      "defaultValue": "all",
+      "queryIds": [
+        "incidencias"
+      ]
+    },
+    {
+      "id": "modulo",
+      "label": "Módulo",
+      "group": "source",
+      "field": "moduloCategoria",
+      "defaultValue": "all",
+      "queryIds": [
+        "incidencias"
+      ]
+    },
+    {
+      "id": "bloqueante",
+      "label": "Bloqueante",
+      "group": "source",
+      "field": "bloqueanteCategoria",
+      "defaultValue": "all",
+      "queryIds": [
+        "incidencias"
+      ]
+    },
+    {
+      "id": "alerta",
+      "label": "Alerta del registro",
+      "group": "source",
+      "field": "alertaCategoria",
       "defaultValue": "all",
       "queryIds": [
         "incidencias"
@@ -45,8 +79,9 @@
     },
     {
       "id": "plazoEstado",
-      "field": "plazoEstado",
       "label": "Plazo al corte",
+      "group": "calculated",
+      "field": "plazoEstado",
       "defaultValue": "all",
       "queryIds": [
         "incidencias"
@@ -68,6 +103,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": "2026-09-24",
           "plazoOriginal": "2026-09-24",
@@ -77,10 +113,18 @@
           "detalle": "Se programó uno en vivo durante la reunión (11 a.m. aprox.) y no salió. Alex confirmó que el problema sigue. Actualización 24/09: no sería falla del sistema. Chat 15/09: Alex indicó que el cambio estaba listo para subir; nadie ha confirmado si ya funciona.",
           "accion": "Revisar si hay que modificarlo.",
           "soporte": "25/09 (Alex): ya se puede programar texto y multimedia.",
-          "compromisoTexto": "2026-09-24",
+          "compromisoTexto": "2026-09-24T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-002",
@@ -94,6 +138,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": "2026-09-15",
           "plazoOriginal": "2026-09-15",
@@ -103,10 +148,18 @@
           "detalle": "Freddy probó desde admin y no le permite; los asesores sí pueden transferirse entre ellos. Caso puntual de reasignación sin resolver. Nuevo reporte 23/09: el administrador aún no puede transferir chats. Actualización 24/09: completado.",
           "accion": "Corregir transferencia y asignación desde el rol administrador, y validar destino, historial y permisos tras el traspaso.",
           "soporte": "15/09 (Alex): mapeado para la noche. 24/09: subió la actualización para transferir.",
-          "compromisoTexto": "2026-09-15",
+          "compromisoTexto": "2026-09-15T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-003",
@@ -120,6 +173,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -132,7 +186,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Etiquetas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-005",
@@ -146,6 +208,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -158,7 +221,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-006",
@@ -172,6 +243,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -184,7 +256,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Crítica",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-007",
@@ -198,6 +278,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": "2026-09-24",
           "plazoOriginal": "2026-09-24",
@@ -207,10 +288,18 @@
           "detalle": "La regla de 48 h hizo que el chat de Claudio pasara a Brenda (venta miércoles, cliente volvió a escribir sábado). Chat 15/09: Alex indicó que el cambio estaba listo para subir; falta confirmar con los pilotos.",
           "accion": "Ampliar a 72 h.",
           "soporte": "15/09 (Alex): cambio listo para subir.",
-          "compromisoTexto": "2026-09-24",
+          "compromisoTexto": "2026-09-24T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Cierre automático",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-008",
@@ -224,6 +313,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -236,7 +326,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Etiquetas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-009",
@@ -250,6 +348,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -262,7 +361,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Etiquetas",
+          "prioridadCategoria": "Baja",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-010",
@@ -276,6 +383,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -288,7 +396,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-011",
@@ -302,6 +418,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": "2026-09-24",
           "plazoOriginal": "2026-09-24",
@@ -311,10 +428,18 @@
           "detalle": "25/09: Alex inicia el cierre masivo. 07/10: Freddy ve chats del 29/09 aún abiertos en el CRM de Rodrigo. 12/10: el cierre se cayó cerca de las 9 a. m. y se restableció 9:15.",
           "accion": "Ajustar a 72 h (Alex). Freddy define y programa los textos. Retirar de Espera los casos de más de 72 h con registro y sin cerrar conversaciones activas. Alex confirma fecha de activación con las políticas ya entregadas.",
           "soporte": "Vigilar: hubo chats sin cerrar el 07/10.",
-          "compromisoTexto": "2026-09-24",
+          "compromisoTexto": "2026-09-24T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Cierre automático",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex / Freddy",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-012",
@@ -328,6 +453,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": "2026-09-15",
           "plazoOriginal": "2026-09-15",
@@ -337,10 +463,18 @@
           "detalle": "Los asesores usan el celular físico; el audio aparece en el CRM con signo de interrogación rojo. Chat 15/09: Alex indicó que el cambio estaba listo para subir; falta confirmar con los pilotos.",
           "accion": "En implementación.",
           "soporte": "25/09 (Alex): audios solucionados.",
-          "compromisoTexto": "2026-09-15",
+          "compromisoTexto": "2026-09-15T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-013",
@@ -354,6 +488,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": "2026-08-29",
           "plazoOriginal": "2026-08-29",
@@ -363,10 +498,18 @@
           "detalle": "29/09 y 01/10: fallaban (permiso denegado). 01/10: Alex las activa. 03/10: un caso aislado.",
           "accion": "Alex sigue investigando alternativas.",
           "soporte": null,
-          "compromisoTexto": "2026-08-29",
+          "compromisoTexto": "2026-08-29T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Llamadas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-014",
@@ -380,6 +523,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": "2026-10-02",
           "plazoOriginal": "2026-10-02",
@@ -389,10 +533,18 @@
           "detalle": "Distinguir leads de Meta y TikTok y devolver conversiones. 09/10: JC indica que no es prioridad y puede esperar a la fase 2.",
           "accion": "Validar atribución y evento de conversión.",
           "soporte": "16/09 (Alex): aún no se diferencia el texto por campaña. // completado",
-          "compromisoTexto": "2026-10-02",
+          "compromisoTexto": "2026-10-02T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Campañas y origen del lead",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Postergado (fase 2)",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-015",
@@ -406,6 +558,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": "2026-09-28",
           "plazoOriginal": "2026-09-28",
@@ -415,10 +568,18 @@
           "detalle": "Base 10/09: cargar speeches estándar editables y medir porcentaje de edición. Nuevo requerimiento 23/09: abrir respuestas rápidas al escribir doble slash (//).",
           "accion": "Freddy y Ricardo definen textos; desarrollo agrega selector al escribir //, búsqueda e inserción editable. Verificar que funcione con teclado.",
           "soporte": "25/09 (Alex): herramientas se activan con «/». 09/10: Mayir configuró las respuestas de productos en campaña.",
-          "compromisoTexto": "2026-09-28",
+          "compromisoTexto": "2026-09-28T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Freddy / Ricardo",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-016",
@@ -432,6 +593,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -444,7 +606,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Aclarado",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "—",
+          "responsableCategoria": "Por asignar",
+          "etapaCategoria": "Aclarado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-017",
@@ -458,6 +628,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -470,7 +641,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Aclarado",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "—",
+          "responsableCategoria": "Por asignar",
+          "etapaCategoria": "Aclarado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-018",
@@ -484,6 +663,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-10",
           "plazo": null,
           "plazoOriginal": null,
@@ -496,7 +676,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Definición interna",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Freddy",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-019",
@@ -510,6 +698,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-09-23",
           "plazo": "2026-09-24",
           "plazoOriginal": "2026-09-24",
@@ -519,10 +708,18 @@
           "detalle": "Reporte 23/09: los clientes con número oculto o alias no reciben respuesta del CRM y sus conversaciones no se asignan. Actualización 24/09: la falla de asignación está confirmada.",
           "accion": "Primera atención 1/3. Reproducir con un contacto con alias; asegurar recepción, creación o identificación de conversación, asignación y respuesta; comprobar trazabilidad sin depender del número visible.",
           "soporte": null,
-          "compromisoTexto": "2026-09-24",
+          "compromisoTexto": "2026-09-24T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Crítica",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-020",
@@ -536,6 +733,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-23",
           "plazo": null,
           "plazoOriginal": null,
@@ -548,7 +746,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-021",
@@ -562,6 +768,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-23",
           "plazo": null,
           "plazoOriginal": null,
@@ -574,7 +781,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Cierre automático",
+          "prioridadCategoria": "—",
+          "responsableCategoria": "Por asignar",
+          "etapaCategoria": "Unificado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-022",
@@ -588,6 +803,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-23",
           "plazo": null,
           "plazoOriginal": null,
@@ -600,7 +816,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Crítica",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-023",
@@ -614,6 +838,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-23",
           "plazo": null,
           "plazoOriginal": null,
@@ -626,7 +851,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-024",
@@ -640,6 +873,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-23",
           "plazo": "2026-09-29",
           "plazoOriginal": "2026-09-29",
@@ -649,10 +883,18 @@
           "detalle": "Reporte 23/09: el CRM no muestra qué integrante del equipo envió mensajes al cliente; dificulta la continuidad durante una transferencia.",
           "accion": "Mostrar identidad del emisor interno en cada mensaje dentro de la conversación iniciada y conservarla en el historial tras transferencias.",
           "soporte": null,
-          "compromisoTexto": "2026-09-29",
+          "compromisoTexto": "2026-09-29T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-025",
@@ -666,6 +908,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-23",
           "plazo": "2026-09-29",
           "plazoOriginal": "2026-09-29",
@@ -675,10 +918,18 @@
           "detalle": "Reporte 23/09: cuando el cliente reacciona, el asesor ve un globo vacío.",
           "accion": "Mostrar la reacción y el mensaje al que corresponde.",
           "soporte": "Validación pendiente por parte de usuarios.",
-          "compromisoTexto": "2026-09-29",
+          "compromisoTexto": "2026-09-29T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-026",
@@ -692,6 +943,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-24",
           "plazo": "2026-09-24",
           "plazoOriginal": "2026-09-24",
@@ -701,10 +953,18 @@
           "detalle": "Reporte 24/09: Freddy tuvo que reasignar uno por uno los chats del incidente del #6. La selección múltiple solo existía en el Home, no dentro de la bandeja del asesor.",
           "accion": "Permitir seleccionar varios chats en la bandeja de un asesor y transferirlos a otro en un solo paso.",
           "soporte": "24/09 (Alex): «ya está la opción» (11:22). Pendiente validación de Freddy.",
-          "compromisoTexto": "2026-09-24",
+          "compromisoTexto": "2026-09-24T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Reporte del 09/10 posterior al cierre documental del 24/09: revisar reapertura. La declaración general del proveedor no valida este caso individualmente."
+          "evaluacion": "Reporte del 09/10 posterior al cierre documental del 24/09: revisar reapertura. La declaración general del proveedor no valida este caso individualmente.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-027",
@@ -718,6 +978,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -727,10 +988,18 @@
           "detalle": "Requerimiento de la reunión del 29/09. Sin detalle en el Excel: completar.",
           "accion": null,
           "soporte": null,
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Por clasificar",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-028",
@@ -744,6 +1013,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -753,10 +1023,18 @@
           "detalle": "Requerimiento de la reunión del 29/09. Sin detalle en el Excel: completar.",
           "accion": null,
           "soporte": null,
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Por clasificar",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "En desarrollo",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-029",
@@ -770,6 +1048,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -779,10 +1058,18 @@
           "detalle": "Requerimiento de la reunión del 29/09. Sin detalle en el Excel: completar.",
           "accion": null,
           "soporte": null,
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Por clasificar",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-030",
@@ -796,6 +1083,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -805,10 +1093,18 @@
           "detalle": "Requerimiento de la reunión del 29/09. Sin detalle en el Excel: completar.",
           "accion": null,
           "soporte": null,
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Por clasificar",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-031",
@@ -822,6 +1118,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -831,10 +1128,18 @@
           "detalle": "Acceder a las conversaciones históricas de los asesores desde el administrador.",
           "accion": "Panel para ver el histórico por asesor.",
           "soporte": null,
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-032",
@@ -848,6 +1153,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -857,10 +1163,18 @@
           "detalle": "Requerimiento de la reunión del 29/09. Sin detalle en el Excel: completar.",
           "accion": null,
           "soporte": "lead no calificado, no responde",
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Por clasificar",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-033",
@@ -874,6 +1188,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -883,10 +1198,18 @@
           "detalle": null,
           "accion": null,
           "soporte": null,
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-034",
@@ -900,6 +1223,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -909,10 +1233,18 @@
           "detalle": "Requerimiento de la reunión del 29/09. Sin detalle en el Excel: completar.",
           "accion": null,
           "soporte": "por verificar, descartar el caso de asesores que se conectan en la noche para recibir todos los chats",
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Por clasificar",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-035",
@@ -926,6 +1258,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -935,10 +1268,18 @@
           "detalle": null,
           "accion": null,
           "soporte": "Ojo: el #47 reporta que no envía adjuntos.",
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-036",
@@ -952,6 +1293,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -961,10 +1303,18 @@
           "detalle": null,
           "accion": null,
           "soporte": "02/10 (Alex): temporizador visible; cuenta de 72 h hacia abajo.",
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Cierre automático",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-037",
@@ -978,6 +1328,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-06",
           "plazo": "2026-10-09",
           "plazoOriginal": "2026-10-09",
@@ -987,10 +1338,18 @@
           "detalle": null,
           "accion": null,
           "soporte": "Reabierto como #45.",
-          "compromisoTexto": "2026-10-09",
+          "compromisoTexto": "2026-10-09T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-038",
@@ -1004,6 +1363,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-09",
           "plazo": null,
           "plazoOriginal": null,
@@ -1016,7 +1376,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Persistencia el 09/10 tras anuncio general de solución; luego corrección específica y aceptación general, sin prueba funcional detallada."
+          "evaluacion": "Persistencia el 09/10 tras anuncio general de solución; luego corrección específica y aceptación general, sin prueba funcional detallada.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Etiquetas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-039",
@@ -1030,6 +1398,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-06",
           "plazo": "2026-10-09",
           "plazoOriginal": "2026-10-09",
@@ -1039,10 +1408,18 @@
           "detalle": null,
           "accion": null,
           "soporte": null,
-          "compromisoTexto": "2026-10-09",
+          "compromisoTexto": "2026-10-09T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-040",
@@ -1056,6 +1433,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -1065,10 +1443,18 @@
           "detalle": "Requerimiento de la reunión del 29/09.",
           "accion": null,
           "soporte": null,
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-041",
@@ -1082,6 +1468,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-29",
           "plazo": "2026-10-01",
           "plazoOriginal": "2026-10-01",
@@ -1091,10 +1478,18 @@
           "detalle": null,
           "accion": null,
           "soporte": null,
-          "compromisoTexto": "2026-10-01",
+          "compromisoTexto": "2026-10-01T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-042",
@@ -1108,6 +1503,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": "2026-10-12",
           "plazo": "2026-10-19",
           "plazoOriginal": "2026-10-19",
@@ -1117,10 +1513,18 @@
           "detalle": "Cada asesor con su propio historial (turno, hora de conexión y desconexión, tiempo desconectado); hoy está todo mezclado. Formato propuesto enviado el 13/10 (Historial_Conexiones_Mejorado.xlsx). 17/10: la vista dejó de funcionar y se revirtió (ver #63).",
           "accion": "Corregir fecha y hora, y filtrar por asesor.",
           "soporte": null,
-          "compromisoTexto": "2026-10-19",
+          "compromisoTexto": "2026-10-19T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-043",
@@ -1134,6 +1538,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-12",
           "plazo": null,
           "plazoOriginal": null,
@@ -1146,7 +1551,15 @@
           "compromisoTexto": "19/10/2026 - 22/10/26",
           "interpretacion": "Texto pendiente de aclarar",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Cierre automático",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Ricardo / Freddy (definición) → Alex",
+          "etapaCategoria": "Por definir (interno)",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-044",
@@ -1160,6 +1573,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-10",
           "plazo": "2026-10-20",
           "plazoOriginal": "2026-10-20",
@@ -1169,10 +1583,18 @@
           "detalle": "10/10: Nicole y otra asesora ven en su Espera chats con mensajes enviados por Rodrigo (Ev-1, Ev-2). Freddy lo informó a Alex el 10/10.",
           "accion": "Confirmar el origen. Cada asesor ve en su Espera solo sus chats; si es transferencia, debe entrar a Pendientes del nuevo asesor e indicar de quién viene.",
           "soporte": "Estar atentos a si se repite: ese día fue excepcional por actualizaciones de la plataforma. / para observacion despues de la asignacion de reglas",
-          "compromisoTexto": "2026-10-20",
+          "compromisoTexto": "2026-10-20T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Reporte interno 10/10; anuncio de escalamiento ese día y constancia explícita en soporte 12/10. No confundir anuncio con envío comprobado."
+          "evaluacion": "Reporte interno 10/10; anuncio de escalamiento ese día y constancia explícita en soporte 12/10. No confundir anuncio con envío comprobado.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-045",
@@ -1186,6 +1608,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-06",
           "plazo": "2026-10-09",
           "plazoOriginal": "2026-10-09",
@@ -1195,10 +1618,18 @@
           "detalle": "Reabre el #37. 12/10: la función se creó, pero el bot no responde a las palabras clave y envía el mensaje genérico inicial.",
           "accion": "Reajustar la configuración (link o código de conjunto) y probar con los productos en campaña.",
           "soporte": "Hacer seguimiento: ya se configuró.",
-          "compromisoTexto": "2026-10-09",
+          "compromisoTexto": "2026-10-09T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-046",
@@ -1212,6 +1643,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-12",
           "plazo": "2026-10-14",
           "plazoOriginal": "2026-10-14",
@@ -1221,10 +1653,18 @@
           "detalle": "Actualización del #8 (12/10): las Comerciales pueden ir ocultas porque crecerán con los productos.",
           "accion": "Seguimiento arriba junto al panel de WhatsApp; ocultar Comerciales.",
           "soporte": "09/10 (Alex): «ya están agrupados».",
-          "compromisoTexto": "2026-10-14",
+          "compromisoTexto": "2026-10-14T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Etiquetas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-047",
@@ -1238,19 +1678,28 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-10",
           "plazo": "2026-10-23",
           "plazoOriginal": "2026-10-23",
           "solucion": null,
-          "plazoEstado": "En plazo",
+          "plazoEstado": "Vence al corte",
           "reprogramada": false,
           "detalle": "Se configuraron mensajes múltiples y en las pruebas no se enviaron las imágenes.",
           "accion": "Confirmar el método correcto de configuración y corregir el envío de adjuntos.",
           "soporte": "revision el viernes",
-          "compromisoTexto": "2026-10-23",
+          "compromisoTexto": "2026-10-23T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-048",
@@ -1264,6 +1713,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-14",
           "plazo": null,
           "plazoOriginal": null,
@@ -1276,7 +1726,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Campañas y origen del lead",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex / Marketing",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-049",
@@ -1290,19 +1748,28 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-10-13",
           "plazo": "2026-10-22",
           "plazoOriginal": "2026-10-22",
           "solucion": null,
-          "plazoEstado": "En plazo",
+          "plazoEstado": "Vencida",
           "reprogramada": false,
           "detalle": "13/10 y 14/10: Freddy contrasta el teléfono con el CRM; el cliente envía varios mensajes y solo se ve una parte, el asesor tiene que volver a preguntar. Caso parecido el 26/09 (la asesora solo veía hasta el «OK» del cliente).",
           "accion": "Mostrar todos los mensajes que envía el cliente en el orden correcto y confirmar la corrección con un caso real.",
-          "soporte": "13/10 y 14/10 (Alex): cambio de Meta; el 14/10 dijo que «hoy se soluciona». Falta confirmar. limpieza general de reglas, y evaluar desempeño en nuevos chats",
-          "compromisoTexto": "2026-10-22",
+          "soporte": "13/10 y 14/10 (Alex): cambio de Meta; el 14/10 dijo que «hoy se soluciona». Falta confirmar. limpieza general de reglas, y evaluar desempeño en nuevos chats | 22/10/2026: en el chat de asesores se reporta que aparecen mensajes del día anterior. Antecedente contextual de demora, sin identificador de conversación que permita confirmar que sea el mismo fallo. Ref. G02-203; actualización 23/10/2026.",
+          "compromisoTexto": "2026-10-22T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Reportes 13 y 14/10. Reincidencia alegada por usuario, pero el proveedor dice que faltaba aplicar actualización; no hay cierre previo verificado."
+          "evaluacion": "Reportes 13 y 14/10. Reincidencia alegada por usuario, pero el proveedor dice que faltaba aplicar actualización; no hay cierre previo verificado.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-050",
@@ -1316,6 +1783,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-12",
           "plazo": null,
           "plazoOriginal": null,
@@ -1328,7 +1796,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-051",
@@ -1342,6 +1818,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-15",
           "plazo": null,
           "plazoOriginal": null,
@@ -1354,7 +1831,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-052",
@@ -1368,6 +1853,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-15",
           "plazo": null,
           "plazoOriginal": null,
@@ -1380,7 +1866,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-053",
@@ -1394,6 +1888,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-16",
           "plazo": null,
           "plazoOriginal": null,
@@ -1406,7 +1901,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Contexto de fallo desde 16/10 10:35; falta de reloj/plataforma explícita a las 11:10. No inferir reglas de Meta como hechos verificados."
+          "evaluacion": "Contexto de fallo desde 16/10 10:35; falta de reloj/plataforma explícita a las 11:10. No inferir reglas de Meta como hechos verificados.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Campañas y origen del lead",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-054",
@@ -1420,6 +1923,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-10-14",
           "plazo": null,
           "plazoOriginal": null,
@@ -1432,7 +1936,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Reportes explícitos de clientes que regresan el 16 y 17/10; antecedente genérico contextual el 14/10. Mensajes del 20 y 21/10 quedan por vincular."
+          "evaluacion": "Reportes explícitos de clientes que regresan el 16 y 17/10; antecedente genérico contextual el 14/10. Mensajes del 20 y 21/10 quedan por vincular.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Crítica",
+          "responsableCategoria": "Alex / Freddy-Ricardo (política)",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-055",
@@ -1446,6 +1958,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": null,
           "plazo": null,
           "plazoOriginal": null,
@@ -1458,7 +1971,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Definición interna",
+          "moduloCategoria": "Llamadas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Freddy",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-056",
@@ -1472,6 +1993,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-09",
           "plazo": null,
           "plazoOriginal": null,
@@ -1484,7 +2006,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre."
+          "evaluacion": "Hay respaldo textual; las respuestas y propuestas no prueban por sí solas el cierre.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Campañas y origen del lead",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex / Marketing",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-057",
@@ -1498,19 +2028,28 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": "Vencido",
           "ingreso": null,
           "plazo": "2026-10-22",
           "plazoOriginal": "2026-10-22",
           "solucion": null,
-          "plazoEstado": "En plazo",
+          "plazoEstado": "Vencida",
           "reprogramada": false,
           "detalle": "El cliente regresa días después por otra publicidad; el timer de 72 h debería reiniciarse (evaluar si Meta cobra esos mensajes).",
           "accion": "Reiniciar el contador cuando el chat entra por un anuncio nuevo.",
           "soporte": "Visto en reunión con Alex 19/10. / hoy se configura la regla con la revision, todo lo que llega por anuncios incluidos chats antiguos tienen 72 horas",
-          "compromisoTexto": "2026-10-22",
+          "compromisoTexto": "2026-10-22T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Campañas y origen del lead",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Vencido"
         },
         {
           "id": "FD-058",
@@ -1524,11 +2063,12 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-10-09",
           "plazo": "2026-10-23",
           "plazoOriginal": "2026-10-20",
           "solucion": null,
-          "plazoEstado": "En plazo",
+          "plazoEstado": "Vence al corte",
           "reprogramada": true,
           "detalle": "09/10: Nicole reporta que chats NUEVOS pasan solos a Espera (Freddy lo sube al grupo de soporte). 10/10: otra asesora lo confirma y sigue ocurriendo. Ev-3: chats en Espera solo con el saludo automático, 51–60 h sin respuesta de un asesor. 13/10: Freddy pide revisar Espera porque «ahí están cayendo los mensajes». Estaba como #45 en una versión del Excel y no figuraba en la otra.",
           "accion": "Un chat solo debe pasar a Espera cuando un asesor responde; los mensajes automáticos no deben contar. Devolver a Pendientes los chats afectados. Implementar el indicador de quién transfirió el chat.",
@@ -1536,7 +2076,15 @@
           "compromisoTexto": "20/10/2026  - 23/10/2026",
           "interpretacion": "Reprogramacion confirmada por usuario",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Persistencia documentada del 09 al 20/10: 11 días entre fechas de calendario, no 11 reincidencias. Reenvíos entre grupos agrupados; no se acredita cierre intermedio."
+          "evaluacion": "Persistencia documentada del 09 al 20/10: 11 días entre fechas de calendario, no 11 reincidencias. Reenvíos entre grupos agrupados; no se acredita cierre intermedio.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Asignación y bandejas",
+          "prioridadCategoria": "Crítica",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-059",
@@ -1550,6 +2098,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-07",
           "plazo": null,
           "plazoOriginal": null,
@@ -1562,7 +2111,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Mismo síntoma reportado el 07 y 13/10. Repetición sin evidencia de cierre validado entre ambos reportes."
+          "evaluacion": "Mismo síntoma reportado el 07 y 13/10. Repetición sin evidencia de cierre validado entre ambos reportes.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Bot y respuestas",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-060",
@@ -1576,6 +2133,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-10-14",
           "plazo": null,
           "plazoOriginal": null,
@@ -1588,7 +2146,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Falta de recepción 14/10 y consulta sobre límite 8/6; causalidad por verificar. Mantener conflicto de estado entre Sheets."
+          "evaluacion": "Falta de recepción 14/10 y consulta sobre límite 8/6; causalidad por verificar. Mantener conflicto de estado entre Sheets.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Usuarios y accesos",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex / Ricardo",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-061",
@@ -1602,6 +2168,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-29",
           "plazo": "2026-10-24",
           "plazoOriginal": "2026-10-24",
@@ -1610,11 +2177,19 @@
           "reprogramada": false,
           "detalle": "29/09 (Alex): Meta da 72 h, pero si no se responde en 24 h se pierde la ventana y solo se puede escribir con plantillas. 05/10: los mensajes del sábado ya se cortaron y están consumiendo créditos.",
           "accion": "Definir cobertura de fin de semana o una plantilla aprobada para retomar estos chats.",
-          "soporte": "configurar respuesta automatica, que se enviara el domingo a las 4 pm para reiniciar el contador de respuesta de 72 h \"Gracias por escribir a decocasa el dia de mañana a primera hora un asesor te contactara para brindarte asesoria\"",
-          "compromisoTexto": "2026-10-24",
+          "soporte": "configurar respuesta automatica, que se enviara el domingo a las 4 pm para reiniciar el contador de respuesta de 72 h \"Gracias por escribir a decocasa el dia de mañana a primera hora un asesor te contactara para brindarte asesoria\" | 23/10/2026: se solicita revisar la duración de la ventana de respuesta para anuncios; soporte responde que revisará y cambiará las reglas. La mención a 7 días es una afirmación del chat pendiente de comprobar, no una política verificada. Sin nueva fecha concreta para este caso. Ref. G01-270 a G01-272.",
+          "compromisoTexto": "2026-10-24T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Definición interna",
+          "moduloCategoria": "Cierre automático",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Freddy / Ricardo",
+          "etapaCategoria": "Por definir (interno)",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-062",
@@ -1628,6 +2203,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-09-30",
           "plazo": null,
           "plazoOriginal": null,
@@ -1640,7 +2216,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex / Ricardo",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-063",
@@ -1654,6 +2238,7 @@
           "situacion": "Cerrado",
           "cumplida": true,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-10-17",
           "plazo": null,
           "plazoOriginal": null,
@@ -1666,7 +2251,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Cerrado según fuente",
-          "evaluacion": "Secuencia del 17/10 con fallos, respuestas parciales y reversión declarada; no contar cada mensaje como reincidencia."
+          "evaluacion": "Secuencia del 17/10 con fallos, respuestas parciales y reversión declarada; no contar cada mensaje como reincidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Completado",
+          "situacionCategoria": "Cerrado",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-064",
@@ -1680,6 +2273,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-02",
           "plazo": null,
           "plazoOriginal": null,
@@ -1692,7 +2286,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-065",
@@ -1706,6 +2308,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-13",
           "plazo": null,
           "plazoOriginal": null,
@@ -1718,7 +2321,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Cuenta creada según proveedor; permisos restringidos del supervisor pendientes de comprobación."
+          "evaluacion": "Cuenta creada según proveedor; permisos restringidos del supervisor pendientes de comprobación.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Usuarios y accesos",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-068",
@@ -1732,6 +2343,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": true,
+          "alertaFuente": null,
           "ingreso": "2026-10-20",
           "plazo": null,
           "plazoOriginal": null,
@@ -1744,7 +2356,15 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Crítica",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "Sí",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-069",
@@ -1758,6 +2378,7 @@
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-21",
           "plazo": "2026-10-27",
           "plazoOriginal": "2026-10-27",
@@ -1767,10 +2388,18 @@
           "detalle": null,
           "accion": "mostrar el mensaje de bienvenida de facebook configurado en la campaña",
           "soporte": "reunion en interno con alex",
-          "compromisoTexto": "2026-10-27",
+          "compromisoTexto": "2026-10-27T00:00:00",
           "interpretacion": "Fecha en fuente",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Alex",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-067",
@@ -1779,11 +2408,12 @@
           "asunto": "añadir contador de mensajes por plataforma",
           "modulo": "Reportes y administrador",
           "prioridad": "Alta",
-          "responsable": "Sin responsable",
-          "etapa": "Pendiente",
+          "responsable": null,
+          "etapa": "Por validar",
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-21",
           "plazo": null,
           "plazoOriginal": null,
@@ -1792,11 +2422,19 @@
           "reprogramada": false,
           "detalle": "Gianfranco solicita contador de mensajes por plataforma para validar mensajes recibidos.",
           "accion": null,
-          "soporte": null,
+          "soporte": "22/10/2026: soporte informa que los contadores de chats ya están instalados. Falta comprobar desglose por plataforma, exactitud y visibilidad con el equipo. Se registra Por validar, sin fecha de solución confirmada. Ref. G01-253 y G01-254.",
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Reportes y administrador",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Por asignar",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         },
         {
           "id": "FD-066",
@@ -1805,11 +2443,12 @@
           "asunto": "desconexion automatica por sla de asesores que no contestan en menos de 5 minutos.",
           "modulo": "Usuarios y accesos",
           "prioridad": "Media",
-          "responsable": "Sin responsable",
-          "etapa": "Sin etapa",
+          "responsable": null,
+          "etapa": null,
           "situacion": "Abierto",
           "cumplida": false,
           "bloqueante": false,
+          "alertaFuente": null,
           "ingreso": "2026-10-21",
           "plazo": null,
           "plazoOriginal": null,
@@ -1822,7 +2461,155 @@
           "compromisoTexto": null,
           "interpretacion": "Sin dato",
           "seguimiento": "Requiere atención",
-          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia."
+          "evaluacion": "Sin coincidencia inequívoca en estos exportados. Conservar fecha y evidencia del cuadro; ausencia de chat no significa ausencia de incidencia.",
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Usuarios y accesos",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Por asignar",
+          "etapaCategoria": "Sin etapa",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
+        },
+        {
+          "id": "FD-070",
+          "numero": 70,
+          "tipo": "Incidencia",
+          "asunto": "Conversaciones o mensajes aparecen en blanco",
+          "modulo": "Mensajería",
+          "prioridad": "Alta",
+          "responsable": "Soporte",
+          "etapa": "Por validar",
+          "situacion": "Abierto",
+          "cumplida": false,
+          "bloqueante": false,
+          "alertaFuente": null,
+          "ingreso": "2026-10-22",
+          "plazo": null,
+          "plazoOriginal": null,
+          "solucion": null,
+          "plazoEstado": "Sin plazo",
+          "reprogramada": false,
+          "detalle": "Reportes de soporte del 22 y 23/10/2026. El 23/10 se sospecha un origen TikTok por la ausencia del icono de Facebook; canal no confirmado. Capturas omitidas en la exportación. Ref. G01-251, G01-252, G01-259, G01-262 y G01-263.",
+          "accion": "Identificar conversación y canal, contrastar mensaje original con CRM y comprobar recepción, almacenamiento y visualización. No unificar aún con reacciones en blanco (#25) ni mensajes TikTok ausentes (#66).",
+          "soporte": "23/10/2026: soporte indica que revisará el reporte. Sin fecha concreta ni confirmación de corrección. Ref. G01-265 y G01-266.",
+          "compromisoTexto": null,
+          "interpretacion": "Sin dato",
+          "seguimiento": null,
+          "evaluacion": null,
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Mensajería",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Soporte",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
+        },
+        {
+          "id": "FD-071",
+          "numero": 71,
+          "tipo": "Incidencia",
+          "asunto": "Llamadas con respuestas repetitivas; origen por verificar",
+          "modulo": "Llamadas",
+          "prioridad": "Media",
+          "responsable": "Por asignar",
+          "etapa": "Por validar",
+          "situacion": "Abierto",
+          "cumplida": false,
+          "bloqueante": false,
+          "alertaFuente": null,
+          "ingreso": "2026-10-22",
+          "plazo": null,
+          "plazoOriginal": null,
+          "solucion": null,
+          "plazoEstado": "Sin plazo",
+          "reprogramada": false,
+          "detalle": "22/10/2026: un asesor reporta respuestas repetitivas al llamar y expresa dudas sobre si responde una persona o un bot. No hay grabación ni identificador de llamada verificable. Ref. G02-201 y G02-202.",
+          "accion": "Reproducir una llamada y registrar destino, hora, audio autorizado y resultado antes de atribuirlo a un fallo del CRM.",
+          "soporte": "22/10/2026: se propone explicar y revisar la función de llamadas al día siguiente. Es una revisión interna, no una solución confirmada del proveedor. Ref. G02-205.",
+          "compromisoTexto": null,
+          "interpretacion": "Sin dato",
+          "seguimiento": null,
+          "evaluacion": null,
+          "tipoCategoria": "Incidencia",
+          "moduloCategoria": "Llamadas",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Por asignar",
+          "etapaCategoria": "Por validar",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
+        },
+        {
+          "id": "FD-072",
+          "numero": 72,
+          "tipo": "Mejora",
+          "asunto": "Alta de usuario solicitada a soporte",
+          "modulo": "Usuarios y accesos",
+          "prioridad": "Media",
+          "responsable": "Soporte",
+          "etapa": "Pendiente",
+          "situacion": "Abierto",
+          "cumplida": false,
+          "bloqueante": false,
+          "alertaFuente": null,
+          "ingreso": "2026-10-23",
+          "plazo": null,
+          "plazoOriginal": null,
+          "solucion": null,
+          "plazoEstado": "Sin plazo",
+          "reprogramada": false,
+          "detalle": "23/10/2026: se solicita a soporte crear un usuario y se consulta el plazo. Los datos de la cuenta se conservan únicamente en la fuente privada. Ref. G01-273 y G01-275.",
+          "accion": "Confirmar creación y probar el acceso con los permisos solicitados, sin publicar credenciales.",
+          "soporte": "23/10/2026: soporte indica que lo hará durante el día; sin confirmación posterior de alta en el exportado. Ref. G01-276. // Compromiso: 23/10/2026",
+          "compromisoTexto": null,
+          "interpretacion": "Sin dato",
+          "seguimiento": null,
+          "evaluacion": null,
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Usuarios y accesos",
+          "prioridadCategoria": "Media",
+          "responsableCategoria": "Soporte",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
+        },
+        {
+          "id": "FD-073",
+          "numero": 73,
+          "tipo": "Mejora",
+          "asunto": "Revisión y actualización de reglas del CRM",
+          "modulo": "Reglas y automatización",
+          "prioridad": "Alta",
+          "responsable": "Soporte",
+          "etapa": "Pendiente",
+          "situacion": "Abierto",
+          "cumplida": false,
+          "bloqueante": false,
+          "alertaFuente": null,
+          "ingreso": "2026-10-22",
+          "plazo": null,
+          "plazoOriginal": null,
+          "solucion": null,
+          "plazoEstado": "Sin plazo",
+          "reprogramada": false,
+          "detalle": "22/10/2026: soporte anuncia una refactorización de reglas. El 23/10 menciona ajustes para esa noche, sin detallar los casos cubiertos. No acredita la solución de otras incidencias. Ref. G01-255, G01-256 y G01-274.",
+          "accion": "Precisar reglas modificadas, casos cubiertos, hora de publicación y pruebas de aceptación por cada incidencia.",
+          "soporte": "22/10/2026: soporte prevé terminar ese día. 23/10/2026: anuncia ajustes para la noche; no hay validación de cierre ni alcance confirmado por caso. Ref. G01-255, G01-256 y G01-274. // Compromiso: 22/10/2026 // Compromiso: 23/10/2026 (noche)",
+          "compromisoTexto": null,
+          "interpretacion": "Sin dato",
+          "seguimiento": null,
+          "evaluacion": null,
+          "tipoCategoria": "Mejora",
+          "moduloCategoria": "Reglas y automatización",
+          "prioridadCategoria": "Alta",
+          "responsableCategoria": "Soporte",
+          "etapaCategoria": "Pendiente",
+          "situacionCategoria": "Abierto",
+          "bloqueanteCategoria": "No",
+          "alertaCategoria": "Sin alerta"
         }
       ],
       "source": {
@@ -1833,16 +2620,16 @@
           "incidencias.sqlite3",
           "registro_evidencias_whatsapp.csv"
         ],
-        "executedAt": "2026-10-21T22:53:30.014459+00:00",
+        "executedAt": "2026-10-23T21:11:02.1253232Z",
         "timezone": "America/Lima",
         "period": {
           "from": "2026-09-10",
-          "to": "2026-10-21"
+          "to": "2026-10-23"
         },
         "evidenceFlow": [
           {
             "title": "Registro operativo",
-            "detail": "Última lectura del registro: 2026-10-21T17:53:30.014459-05:00. No se ha vuelto a consultar Google Sheets al construir esta web."
+            "detail": "Última lectura del registro: 2026-10-23T16:11:02.125323-05:00. La lectura procede de una copia descargada del registro; el original permanece intacto."
           },
           {
             "title": "Consolidación",
@@ -1850,7 +2637,7 @@
           },
           {
             "title": "Copia web",
-            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: a947d3acfc159c11887b72f29913bbe324f7dc7d40f09802dbbc03dc14a93b90"
+            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: f2c9ce003f954652d0195af996d6eb1f5d2ef7a82fc002722c67111fa66dfed1"
           }
         ],
         "caveats": [
@@ -1868,7 +2655,7 @@
           },
           {
             "label": "Vencidas al corte",
-            "definition": "Incidencias abiertas con plazo interpretable anterior a 2026-10-21."
+            "definition": "Incidencias abiertas con plazo interpretable anterior a 2026-10-23."
           },
           {
             "label": "Sin plazo",
@@ -1878,7 +2665,18 @@
             "label": "Reprogramadas",
             "definition": "Incidencias con al menos una versión marcada ReprogramacionConfirmada. No basta encontrar dos fechas en el texto."
           }
-        ]
+        ],
+        "normalization": {
+          "authority": "Categorías de validación y valores observados del Sheets",
+          "originalFieldsPreserved": true,
+          "rules": [
+            "Espacios, mayúsculas y tildes se concilian con el catálogo.",
+            "Responsables compartidos equivalentes se agrupan, conservando roles y condiciones.",
+            "Unificado en #11 se agrupa bajo Unificado; el original y la relación se conservan.",
+            "Prioridad sin dato conserva la opción — del registro.",
+            "Situación y etapa del origen se muestran separadas del plazo calculado."
+          ]
+        }
       }
     },
     "cronologia": {
@@ -3184,6 +3982,19 @@
           "zonaHoraria": null
         },
         {
+          "id": "CAM|CH-b05d06594249409c8c85dc80d3633c95",
+          "caso": "FD-049",
+          "fecha": null,
+          "registro": "2026-10-23T16:11:02.125323-05:00",
+          "fechaOrden": "2026-10-23T16:11:02.125323-05:00",
+          "tipoFecha": "Registro local / detección",
+          "tipo": "Cambio de ComentarioSoporte",
+          "descripcion": "Antes: 13/10 y 14/10 (Alex): cambio de Meta; el 14/10 dijo que «hoy se soluciona». Falta confirmar. limpieza general de reglas, y evaluar desempeño en nuevos chats | Ahora: 13/10 y 14/10 (Alex): cambio de Meta; el 14/10 dijo que «hoy se soluciona». Falta confirmar. limpieza general de reglas, y evaluar desempeño en nuevos chats | 22/10/2026: en el chat de asesores se reporta que aparecen mensajes del día anterior. Antecedente contextual de demora, sin identificador de conversación que permita confirmar que sea el mismo fallo. Ref. G02-203; actualización 23/10/2026.",
+          "vinculo": "Cambio observado",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
           "id": "ING|FD-050",
           "caso": "FD-050",
           "fecha": "2026-10-12",
@@ -3691,6 +4502,19 @@
           "zonaHoraria": null
         },
         {
+          "id": "CAM|CH-add67213fbaf4b5689492c325131ef65",
+          "caso": "FD-061",
+          "fecha": null,
+          "registro": "2026-10-23T16:11:02.125323-05:00",
+          "fechaOrden": "2026-10-23T16:11:02.125323-05:00",
+          "tipoFecha": "Registro local / detección",
+          "tipo": "Cambio de ComentarioSoporte",
+          "descripcion": "Antes: configurar respuesta automatica, que se enviara el domingo a las 4 pm para reiniciar el contador de respuesta de 72 h \"Gracias por escribir a decocasa el dia de mañana a primera hora un asesor te contactara para brindarte asesoria\" | Ahora: configurar respuesta automatica, que se enviara el domingo a las 4 pm para reiniciar el contador de respuesta de 72 h \"Gracias por escribir a decocasa el dia de mañana a primera hora un asesor te contactara para brindarte asesoria\" | 23/10/2026: se solicita revisar la duración de la ventana de respuesta para anuncios; soporte responde que revisará y cambiará las reglas. La mención a 7 días es una afirmación del chat pendiente de comprobar, no una política verificada. Sin nueva fecha concreta para este caso. Ref. G01-270 a G01-272.",
+          "vinculo": "Cambio observado",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
           "id": "ING|FD-062",
           "caso": "FD-062",
           "fecha": "2026-09-30",
@@ -3873,6 +4697,32 @@
           "zonaHoraria": null
         },
         {
+          "id": "CAM|CH-6ce5322f603743ae868eb24ee65c248d",
+          "caso": "FD-067",
+          "fecha": null,
+          "registro": "2026-10-23T16:11:02.125323-05:00",
+          "fechaOrden": "2026-10-23T16:11:02.125323-05:00",
+          "tipoFecha": "Registro local / detección",
+          "tipo": "Cambio de ComentarioSoporte",
+          "descripcion": "Antes: Sin dato | Ahora: 22/10/2026: soporte informa que los contadores de chats ya están instalados. Falta comprobar desglose por plataforma, exactitud y visibilidad con el equipo. Se registra Por validar, sin fecha de solución confirmada. Ref. G01-253 y G01-254.",
+          "vinculo": "Cambio observado",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
+          "id": "CAM|CH-75349396e5bd457fb796e8b3fb29ea2c",
+          "caso": "FD-067",
+          "fecha": null,
+          "registro": "2026-10-23T16:11:02.125323-05:00",
+          "fechaOrden": "2026-10-23T16:11:02.125323-05:00",
+          "tipoFecha": "Registro local / detección",
+          "tipo": "Cambio de Estado",
+          "descripcion": "Antes: Pendiente | Ahora: Por validar",
+          "vinculo": "Cambio observado",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
           "id": "ING|FD-068",
           "caso": "FD-068",
           "fecha": "2026-10-20",
@@ -3897,6 +4747,110 @@
           "vinculo": "Registro operativo",
           "referencia": null,
           "zonaHoraria": null
+        },
+        {
+          "id": "ING|FD-070",
+          "caso": "FD-070",
+          "fecha": "2026-10-22",
+          "registro": null,
+          "fechaOrden": "2026-10-22",
+          "tipoFecha": "Fecha documental",
+          "tipo": "Ingreso al registro",
+          "descripcion": "Fecha consignada en el registro operativo.",
+          "vinculo": "Registro operativo",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
+          "id": "CAM|CH-f3406301f2964b0681f24c40c737b79b",
+          "caso": "FD-070",
+          "fecha": null,
+          "registro": "2026-10-23T16:11:02.125323-05:00",
+          "fechaOrden": "2026-10-23T16:11:02.125323-05:00",
+          "tipoFecha": "Registro local / detección",
+          "tipo": "Cambio de AltaObservada",
+          "descripcion": "Antes: Sin dato | Ahora: Conversaciones o mensajes aparecen en blanco",
+          "vinculo": "Cambio observado",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
+          "id": "ING|FD-071",
+          "caso": "FD-071",
+          "fecha": "2026-10-22",
+          "registro": null,
+          "fechaOrden": "2026-10-22",
+          "tipoFecha": "Fecha documental",
+          "tipo": "Ingreso al registro",
+          "descripcion": "Fecha consignada en el registro operativo.",
+          "vinculo": "Registro operativo",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
+          "id": "CAM|CH-3a624055743b45f3a617ca505e66ed57",
+          "caso": "FD-071",
+          "fecha": null,
+          "registro": "2026-10-23T16:11:02.125323-05:00",
+          "fechaOrden": "2026-10-23T16:11:02.125323-05:00",
+          "tipoFecha": "Registro local / detección",
+          "tipo": "Cambio de AltaObservada",
+          "descripcion": "Antes: Sin dato | Ahora: Llamadas con respuestas repetitivas; origen por verificar",
+          "vinculo": "Cambio observado",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
+          "id": "ING|FD-072",
+          "caso": "FD-072",
+          "fecha": "2026-10-23",
+          "registro": null,
+          "fechaOrden": "2026-10-23",
+          "tipoFecha": "Fecha documental",
+          "tipo": "Ingreso al registro",
+          "descripcion": "Fecha consignada en el registro operativo.",
+          "vinculo": "Registro operativo",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
+          "id": "CAM|CH-95f85165d10646b18d4b33980c91c6a4",
+          "caso": "FD-072",
+          "fecha": null,
+          "registro": "2026-10-23T16:11:02.125323-05:00",
+          "fechaOrden": "2026-10-23T16:11:02.125323-05:00",
+          "tipoFecha": "Registro local / detección",
+          "tipo": "Cambio de AltaObservada",
+          "descripcion": "Antes: Sin dato | Ahora: Alta de usuario solicitada a soporte",
+          "vinculo": "Cambio observado",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
+          "id": "ING|FD-073",
+          "caso": "FD-073",
+          "fecha": "2026-10-22",
+          "registro": null,
+          "fechaOrden": "2026-10-22",
+          "tipoFecha": "Fecha documental",
+          "tipo": "Ingreso al registro",
+          "descripcion": "Fecha consignada en el registro operativo.",
+          "vinculo": "Registro operativo",
+          "referencia": null,
+          "zonaHoraria": null
+        },
+        {
+          "id": "CAM|CH-08c2539a594c498fb23229028a944fbe",
+          "caso": "FD-073",
+          "fecha": null,
+          "registro": "2026-10-23T16:11:02.125323-05:00",
+          "fechaOrden": "2026-10-23T16:11:02.125323-05:00",
+          "tipoFecha": "Registro local / detección",
+          "tipo": "Cambio de AltaObservada",
+          "descripcion": "Antes: Sin dato | Ahora: Revisión y actualización de reglas del CRM",
+          "vinculo": "Cambio observado",
+          "referencia": null,
+          "zonaHoraria": null
         }
       ],
       "source": {
@@ -3907,16 +4861,16 @@
           "incidencias.sqlite3",
           "registro_evidencias_whatsapp.csv"
         ],
-        "executedAt": "2026-10-21T22:53:30.014459+00:00",
+        "executedAt": "2026-10-23T21:11:02.1253232Z",
         "timezone": "America/Lima",
         "period": {
           "from": "2026-09-10",
-          "to": "2026-10-21"
+          "to": "2026-10-23"
         },
         "evidenceFlow": [
           {
             "title": "Registro operativo",
-            "detail": "Última lectura del registro: 2026-10-21T17:53:30.014459-05:00. No se ha vuelto a consultar Google Sheets al construir esta web."
+            "detail": "Última lectura del registro: 2026-10-23T16:11:02.125323-05:00. La lectura procede de una copia descargada del registro; el original permanece intacto."
           },
           {
             "title": "Consolidación",
@@ -3924,7 +4878,7 @@
           },
           {
             "title": "Copia web",
-            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: a947d3acfc159c11887b72f29913bbe324f7dc7d40f09802dbbc03dc14a93b90"
+            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: f2c9ce003f954652d0195af996d6eb1f5d2ef7a82fc002722c67111fa66dfed1"
           }
         ],
         "caveats": [
@@ -4403,16 +5357,16 @@
           "incidencias.sqlite3",
           "registro_evidencias_whatsapp.csv"
         ],
-        "executedAt": "2026-10-21T22:53:30.014459+00:00",
+        "executedAt": "2026-10-23T21:11:02.1253232Z",
         "timezone": "America/Lima",
         "period": {
           "from": "2026-09-10",
-          "to": "2026-10-21"
+          "to": "2026-10-23"
         },
         "evidenceFlow": [
           {
             "title": "Registro operativo",
-            "detail": "Última lectura del registro: 2026-10-21T17:53:30.014459-05:00. No se ha vuelto a consultar Google Sheets al construir esta web."
+            "detail": "Última lectura del registro: 2026-10-23T16:11:02.125323-05:00. La lectura procede de una copia descargada del registro; el original permanece intacto."
           },
           {
             "title": "Consolidación",
@@ -4420,7 +5374,7 @@
           },
           {
             "title": "Copia web",
-            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: a947d3acfc159c11887b72f29913bbe324f7dc7d40f09802dbbc03dc14a93b90"
+            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: f2c9ce003f954652d0195af996d6eb1f5d2ef7a82fc002722c67111fa66dfed1"
           }
         ],
         "caveats": [
@@ -4513,16 +5467,16 @@
           "incidencias.sqlite3",
           "registro_evidencias_whatsapp.csv"
         ],
-        "executedAt": "2026-10-21T22:53:30.014459+00:00",
+        "executedAt": "2026-10-23T21:11:02.1253232Z",
         "timezone": "America/Lima",
         "period": {
           "from": "2026-09-10",
-          "to": "2026-10-21"
+          "to": "2026-10-23"
         },
         "evidenceFlow": [
           {
             "title": "Registro operativo",
-            "detail": "Última lectura del registro: 2026-10-21T17:53:30.014459-05:00. No se ha vuelto a consultar Google Sheets al construir esta web."
+            "detail": "Última lectura del registro: 2026-10-23T16:11:02.125323-05:00. La lectura procede de una copia descargada del registro; el original permanece intacto."
           },
           {
             "title": "Consolidación",
@@ -4530,7 +5484,7 @@
           },
           {
             "title": "Copia web",
-            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: a947d3acfc159c11887b72f29913bbe324f7dc7d40f09802dbbc03dc14a93b90"
+            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: f2c9ce003f954652d0195af996d6eb1f5d2ef7a82fc002722c67111fa66dfed1"
           }
         ],
         "caveats": [
@@ -4788,16 +5742,16 @@
           "incidencias.sqlite3",
           "registro_evidencias_whatsapp.csv"
         ],
-        "executedAt": "2026-10-21T22:53:30.014459+00:00",
+        "executedAt": "2026-10-23T21:11:02.1253232Z",
         "timezone": "America/Lima",
         "period": {
           "from": "2026-09-10",
-          "to": "2026-10-21"
+          "to": "2026-10-23"
         },
         "evidenceFlow": [
           {
             "title": "Registro operativo",
-            "detail": "Última lectura del registro: 2026-10-21T17:53:30.014459-05:00. No se ha vuelto a consultar Google Sheets al construir esta web."
+            "detail": "Última lectura del registro: 2026-10-23T16:11:02.125323-05:00. La lectura procede de una copia descargada del registro; el original permanece intacto."
           },
           {
             "title": "Consolidación",
@@ -4805,7 +5759,7 @@
           },
           {
             "title": "Copia web",
-            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: a947d3acfc159c11887b72f29913bbe324f7dc7d40f09802dbbc03dc14a93b90"
+            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: f2c9ce003f954652d0195af996d6eb1f5d2ef7a82fc002722c67111fa66dfed1"
           }
         ],
         "caveats": [
@@ -5129,16 +6083,16 @@
           "incidencias.sqlite3",
           "registro_evidencias_whatsapp.csv"
         ],
-        "executedAt": "2026-10-21T22:53:30.014459+00:00",
+        "executedAt": "2026-10-23T21:11:02.1253232Z",
         "timezone": "America/Lima",
         "period": {
           "from": "2026-09-10",
-          "to": "2026-10-21"
+          "to": "2026-10-23"
         },
         "evidenceFlow": [
           {
             "title": "Registro operativo",
-            "detail": "Última lectura del registro: 2026-10-21T17:53:30.014459-05:00. No se ha vuelto a consultar Google Sheets al construir esta web."
+            "detail": "Última lectura del registro: 2026-10-23T16:11:02.125323-05:00. La lectura procede de una copia descargada del registro; el original permanece intacto."
           },
           {
             "title": "Consolidación",
@@ -5146,7 +6100,7 @@
           },
           {
             "title": "Copia web",
-            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: a947d3acfc159c11887b72f29913bbe324f7dc7d40f09802dbbc03dc14a93b90"
+            "detail": "Exportación reproducible con tools/exportar_datos.py. Hash SHA256 del consolidado: f2c9ce003f954652d0195af996d6eb1f5d2ef7a82fc002722c67111fa66dfed1"
           }
         ],
         "caveats": [
@@ -5160,13 +6114,13 @@
     }
   },
   "crm": {
-    "corte": "2026-10-21",
-    "lectura": "2026-10-21T17:53:30.014459-05:00",
-    "exportacion": "2026-10-22T20:29:53.144190+00:00",
+    "corte": "2026-10-23",
+    "lectura": "2026-10-23T16:11:02.125323-05:00",
+    "exportacion": "2026-10-23T21:26:47.507656+00:00",
     "actualizacion": "A solicitud",
     "fotosOriginales": true,
     "historiaCompleta": false,
-    "cambiosObservados": 0,
+    "cambiosObservados": 8,
     "eventosSinVinculo": 7
   }
 }

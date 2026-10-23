@@ -1,0 +1,66 @@
+{
+  "verifiedAt": "2026-10-23T21:11:56.966667+00:00",
+  "authority": "Listas de validación y valores del registro de Sheets",
+  "categories": {
+    "tipo": [
+      "Incidencia",
+      "Mejora",
+      "Definición interna",
+      "Aclarado"
+    ],
+    "etapa": [
+      "Pendiente",
+      "En desarrollo",
+      "Por validar",
+      "Por definir (interno)",
+      "Postergado (fase 2)",
+      "Completado",
+      "Aclarado",
+      "Unificado"
+    ],
+    "prioridad": [
+      "Crítica",
+      "Alta",
+      "Media",
+      "Baja",
+      "—"
+    ],
+    "bloqueante": [
+      "Sí",
+      "No"
+    ],
+    "situacion": [
+      "Abierto",
+      "Cerrado"
+    ],
+    "modulo": [
+      "Mensajería",
+      "Asignación y bandejas",
+      "Etiquetas",
+      "Cierre automático",
+      "Reportes y administrador",
+      "Llamadas",
+      "Campañas y origen del lead",
+      "Bot y respuestas",
+      "Por clasificar",
+      "Usuarios y accesos",
+      "Reglas y automatización"
+    ],
+    "responsable": [
+      "Alex",
+      "Alex / Freddy",
+      "Freddy / Ricardo",
+      "—",
+      "Freddy",
+      "Ricardo / Freddy (definición) → Alex",
+      "Marketing / Alex",
+      "Alex / Freddy-Ricardo (política)",
+      "Alex / Marketing",
+      "Alex / Ricardo",
+      "alex",
+      "",
+      "Soporte",
+      "Por asignar"
+    ]
+  }
+}

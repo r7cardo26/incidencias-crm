@@ -10,6 +10,8 @@ assert.equal(ids.size,cases.length,'CasoID duplicado');
 assert.equal(snapshot.buildStatus,'complete');
 for(const r of cases){
  assert.equal(r.cumplida,r.situacion==='Cerrado',r.id+': situación y cumplimiento no concilian');
+ const expected=r.cumplida?'Cumplida':!r.plazo?'Sin plazo':r.plazo<snapshot.crm.corte?'Vencida':r.plazo===snapshot.crm.corte?'Vence al corte':'En plazo';
+ assert.equal(r.plazoEstado,expected,r.id+': clasificación del plazo distinta del corte');
  if(r.plazoEstado==='Vencida')assert.ok(!r.cumplida&&r.plazo&&r.plazo<snapshot.crm.corte,r.id+': vencimiento inválido');
  if(r.plazoEstado==='Sin plazo')assert.ok(!r.cumplida&&!r.plazo,r.id+': sin plazo inválido');
  const confirmed=snapshot.queries.compromisos.rows.some(c=>c.caso===r.id&&c.reprogramacion);

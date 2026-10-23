@@ -1,46 +1,40 @@
 import React,{useState} from 'react';
 import {DataComponent,DataTable} from '../../data-app-public.jsx';
-import {dayLabel,caseOrder} from './crm-data.js';
-import {cleanName,priorityLabel,resultLabel,resultTone} from './crm-normalize.js';
+import {dayLabel,caseOrder,stageTone} from './crm-data.js';
+import {cleanName,priorityLabel,resultTone,stageLabel,moduleLabel,typeLabel,deadlineLabel} from './crm-normalize.js';
 import {CrmIcon} from './CrmControls.jsx';
-
-const isOpen=row=>!row.cumplida;
-const SCOPES=[
- ['abiertas','Pendientes',isOpen],
- ['vencidas','Vencidas',row=>isOpen(row)&&row.plazoEstado==='Vencida'],
- ['bloqueantes','Bloqueantes',row=>isOpen(row)&&row.bloqueante],
- ['sin-plazo','Sin plazo',row=>isOpen(row)&&!row.plazo],
- ['validar','Por validar',row=>isOpen(row)&&row.etapa==='Por validar'],
- ['reprogramadas','Reprogramadas',row=>isOpen(row)&&row.reprogramada],
- ['cumplidas','Cumplidas',row=>row.cumplida],
- ['todas','Todas',()=>true],
-];
-
-export function CrmPendingHome({rows,queries,cutoff,open,controls}){
- const [scope,setScope]=useState('abiertas');
- const count=key=>rows.filter(SCOPES.find(item=>item[0]===key)[2]).length;
- const selected=SCOPES.find(item=>item[0]===scope);
- const visible=rows.filter(selected[2]).sort(caseOrder);
- const completed=count('cumplidas'),percentage=rows.length?Math.round(completed/rows.length*100):0;
+const VIEWS=[['abiertas','Abiertos',row=>!row.cumplida],['cumplidas','Cerrados',row=>row.cumplida],['todas','Todos',()=>true]];
+const QUEUES=[['todas','Todos',()=>true],['vencidas','Plazo vencido',row=>!row.cumplida&&row.plazoEstado==='Vencida'],['bloqueantes','Bloqueantes',row=>!row.cumplida&&row.bloqueante],['sin-plazo','Sin plazo',row=>!row.cumplida&&!row.plazo],['reprogramadas','Reprogramados',row=>row.reprogramada]];
+export function CrmPendingHome({rows,queries,cutoff,readAt,open,controls}){
+ const [scope,setScope]=useState('abiertas'),[queue,setQueue]=useState('todas');
+ const setView=value=>{setScope(value);setQueue('todas');};
+ const opened=rows.filter(row=>!row.cumplida),closed=rows.filter(row=>row.cumplida);
+ const base=rows.filter(VIEWS.find(item=>item[0]===scope)[2]);
+ const visible=base.filter(QUEUES.find(item=>item[0]===queue)[2]).sort(caseOrder);
  const photoCount=id=>(queries.evidencias?.rows||[]).filter(row=>row.caso===id).length;
+ const tableRows=visible.map(row=>({...row,fotosDisponibles:photoCount(row.id)}));
  const columns=[
-  {field:'asunto',label:'Incidencia',renderCell:(value,row)=><div className="crm-queue-subject"><span>{row.id}<small>{row.modulo}</small></span><strong>{value}</strong></div>},
-  {field:'etapa',label:'Estado y etapa',renderCell:(value,row)=><div className="crm-queue-state"><span className={`crm-tag crm-tag--${resultTone(row)}`}>{resultLabel(row)}</span><span>{value}</span></div>},
-  {field:'responsable',label:'Responsable',renderCell:value=><span className="crm-queue-owner">{cleanName(value)}</span>},
-  {field:'plazo',label:'Compromiso',renderCell:(value,row)=><div className="crm-queue-date"><strong>{value?dayLabel(value):'Sin plazo'}</strong>{!row.cumplida&&value&&value<cutoff&&<small className="crm-result-text--red">{Math.round((Date.parse(cutoff)-Date.parse(value))/86400000)} {Math.round((Date.parse(cutoff)-Date.parse(value))/86400000)===1?'día':'días'} al corte</small>}{row.reprogramada&&<small className="crm-result-text--blue">Reprogramado</small>}</div>},
-  {field:'prioridad',label:'Prioridad y evidencia',renderCell:(value,row)=><div className="crm-queue-signals"><span className={row.bloqueante?'crm-blocking':''}>{row.bloqueante&&<CrmIcon name="alert"/>}{row.bloqueante?'Bloqueante':priorityLabel(value)}</span><span className="crm-queue-photos"><CrmIcon name="image"/>{photoCount(row.id)} {photoCount(row.id)===1?'foto':'fotos'}</span></div>},
+  {field:'asunto',label:'Incidencia',renderCell:(value,row)=><div className="crm-queue-subject"><span>{row.id}<small>{typeLabel(row.tipo)}</small></span><strong>{value}</strong><small>{moduleLabel(row.modulo)}</small></div>},
+  {field:'etapaCategoria',label:'Etapa',renderCell:(value,row)=><span title={`Valor original: ${row.etapa||'(vacío)'}`} className={`crm-tag crm-tag--${stageTone(value)}`}>{stageLabel(value)}</span>},
+  {field:'prioridadCategoria',label:'Prioridad',renderCell:(value,row)=><div className="crm-console-priority"><strong className={value==='Crítica'?'crm-result-text--red':''}>{priorityLabel(value)}</strong>{row.bloqueante&&<small className="crm-blocking"><CrmIcon name="alert"/>Bloqueante</small>}</div>},
+  {field:'responsableCategoria',label:'Responsable',renderCell:(value,row)=><span className="crm-queue-owner" title={`Valor original: ${row.responsable||'(vacío)'}`}>{cleanName(value)}</span>},
+  {field:'plazo',label:'Plazo al corte',renderCell:(value,row)=><div className="crm-queue-date"><strong>{value?dayLabel(value):'Sin fecha'}</strong><small className={`crm-result-text--${resultTone(row)}`}>{deadlineLabel(row.plazoEstado)}</small>{row.reprogramada&&<small>Reprogramado</small>}</div>},
+  {field:'fotosDisponibles',label:'Fotos',renderCell:value=><span className="crm-console-photo-count"><CrmIcon name="image"/>{value}</span>},
  ];
- return <>
-  <div className="crm-workspace-heading"><div><span className="crm-eyebrow">SEGUIMIENTO DEL CRM</span><h1>Lo que necesita atención.</h1><p>Revisa los pendientes y abre un caso para ver qué falta, su historia y sus evidencias.</p></div><span className="crm-workspace-stamp"><CrmIcon name="calendar"/>Corte · {dayLabel(cutoff)}</span></div>
-  <div className="crm-overview-grid">
-   <div className="crm-overview-blue"><DataComponent id="crm-abiertas" title="Pendientes abiertos" queryId="incidencias" kind="metrics" variant="card" sourceRows={rows} displayRows={rows}><button className="crm-overview-action" onClick={()=>setScope('abiertas')} aria-label="Mostrar pendientes abiertos"><span className="crm-overview-value">{count('abiertas')}<span className="crm-round-arrow"><CrmIcon name="arrow"/></span></span><span className="crm-overview-caption">incidencias por resolver</span><span className="crm-overview-foot"><i/>{count('bloqueantes')} bloqueantes · {count('validar')} por validar</span></button></DataComponent></div>
-   <div className="crm-overview-lime"><DataComponent id="crm-vencidas" title="Vencidas al corte" queryId="incidencias" kind="metrics" variant="card" sourceRows={rows} displayRows={rows}><button className="crm-overview-action" onClick={()=>setScope('vencidas')} aria-label="Mostrar pendientes vencidos"><span className="crm-overview-value">{count('vencidas')}<span className="crm-round-arrow"><CrmIcon name="arrow"/></span></span><span className="crm-overview-caption">requieren revisar el compromiso</span><span className="crm-overview-foot"><CrmIcon name="clock"/>Evaluadas al {dayLabel(cutoff)}</span></button></DataComponent></div>
-   <DataComponent id="crm-cumplimiento" title="Cumplimiento del registro" queryId="incidencias" kind="metrics" variant="card" sourceRows={rows} displayRows={rows}><button className="crm-overview-action crm-overview-completed" onClick={()=>setScope('cumplidas')} aria-label="Mostrar incidencias cumplidas"><span className="crm-overview-value">{percentage}<small>%</small><span className="crm-progress-caption">{completed} de {rows.length}<small>cumplidas</small></span></span><span className="crm-overview-meter" role="meter" aria-label="Porcentaje de incidencias cumplidas" aria-valuenow={percentage} aria-valuemin={0} aria-valuemax={100}><i style={{width:`${percentage}%`}}/></span><span className="crm-overview-foot">Cerrado en el registro = Cumplida<CrmIcon name="arrow"/></span></button></DataComponent>
-  </div>
-  <div className="crm-queue-heading"><div><h2>Tu mesa de seguimiento</h2><p>Bloqueantes primero; después, vencimiento y prioridad documentada.</p></div><span>{visible.length} {visible.length===1?'incidencia':'incidencias'} en esta vista</span></div>
-  {controls}
-  <div className="crm-queue-scopes" role="group" aria-label="Vistas rápidas de incidencias">{SCOPES.map(([key,label])=><button key={key} aria-pressed={scope===key} onClick={()=>setScope(key)}>{label}<span>{count(key)}</span></button>)}</div>
-  <div className="crm-queue-table"><DataComponent id="crm-registro" title={scope==='abiertas'?'Pendientes por atender':selected[1]} queryId="incidencias" kind="table" variant="card" sourceRows={visible} displayRows={visible}><DataTable key={`${scope}:${visible.map(row=>row.id).join(',')}`} rows={visible} columns={columns} searchable={false} rowKey="id" onRowSelect={row=>open(row.id)} rowActionLabel={row=>`Abrir ${row.id}: ${row.asunto}`} caption="Selecciona una fila para abrir el detalle sin perder esta lista"/>{!visible.length&&<p className="crm-empty">No hay incidencias en esta selección. Cambia la vista o limpia los filtros.</p>}</DataComponent></div>
-  <p className="crm-workspace-note"><CrmIcon name="folder"/>Las vistas rápidas se superponen: un caso puede estar vencido y ser bloqueante. Las cifras responden a los filtros de búsqueda y responsable.</p>
- </>;
+ const expired=opened.filter(row=>row.plazoEstado==='Vencida').length,undated=opened.filter(row=>!row.plazo).length,percentage=rows.length?Math.round(closed.length/rows.length*100):0;
+ return <div className="crm-console">
+  <div className="crm-console-heading"><div><span className="crm-eyebrow">CONTROL DEL CRM</span><h1>Incidencias y seguimiento</h1><p>Las categorías del registro, con los compromisos y evidencias a un clic.</p></div><div className="crm-console-freshness"><span><i/>Lectura verificada</span><strong>{dayLabel(cutoff)} · {readAt?.slice(11,16)}, Lima</strong><small>{rows.length} registros en la selección</small></div></div>
+  <div className="crm-console-metrics">{[
+   ['crm-abiertas','Abiertos',opened.length,'blue',()=>setView('abiertas'),`${closed.length} cerrados en la selección`],
+   ['crm-vencidas','Plazos vencidos',expired,'white',()=>{setScope('abiertas');setQueue('vencidas');},'Cálculo al corte del registro'],
+   ['crm-sin-plazo','Abiertos sin plazo',undated,'white',()=>{setScope('abiertas');setQueue('sin-plazo');},'Compromiso pendiente de definir'],
+   ['crm-cumplimiento','Cumplimiento',`${percentage}%`,'lime',()=>setView('cumplidas'),`${closed.length} de ${rows.length} · Cerrado = cumplida`],
+  ].map(([id,title,value,tone,action,note])=><div key={id} className={`crm-console-metric crm-console-metric--${tone}`}><DataComponent id={id} title={title} queryId="incidencias" kind="metrics" variant="card" sourceRows={rows} displayRows={rows}><button onClick={action} aria-label={`Ver ${title.toLowerCase()}`}><strong>{value}</strong><span>{note}</span><CrmIcon name="arrow"/></button></DataComponent></div>)}</div>
+  <div className="crm-console-layout"><aside>{controls}</aside><div className="crm-console-main">
+   <div className="crm-console-view-heading"><div><h2>Registro de incidencias</h2><p>Orden: bloqueante, prioridad del Sheets y plazo.</p></div><div className="crm-console-source-tabs" role="group" aria-label="Situación del registro">{VIEWS.map(([id,label,filter])=><button key={id} aria-pressed={scope===id} onClick={()=>setView(id)}>{label}<span>{rows.filter(filter).length}</span></button>)}</div></div>
+   <div className="crm-console-followup"><span>Seguimiento</span><div role="group" aria-label="Filtros de seguimiento calculado">{QUEUES.map(([id,label,filter])=><button key={id} aria-pressed={queue===id} onClick={()=>setQueue(id)}>{label}<span>{base.filter(filter).length}</span></button>)}</div></div>
+   <div className="crm-queue-table"><DataComponent id="crm-registro" title={`${VIEWS.find(item=>item[0]===scope)[1]} · ${visible.length} incidencias`} queryId="incidencias" kind="table" variant="card" sourceRows={visible} displayRows={tableRows}><DataTable key={`${scope}:${queue}:${visible.map(row=>row.id).join(',')}`} rows={tableRows} columns={columns} searchable={false} rowKey="id" onRowSelect={row=>open(row.id)} rowActionLabel={row=>`Abrir ${row.id}: ${row.asunto}`} caption="Abre una incidencia para revisar su ficha, línea de tiempo y fotos"/>{!visible.length&&<p className="crm-empty">No hay casos en esta selección. Prueba otra situación o limpia los filtros.</p>}</DataComponent></div>
+   <details className="crm-normalization"><summary>Qué se normalizó y qué conserva el Sheets</summary><p>Tipo, etapa, prioridad y bloqueo respetan las categorías del registro. Se unifican espacios, variantes de escritura y responsables compartidos equivalentes. «Unificado en #11» se agrupa como «Unificado», conservando la referencia original. «—» sigue siendo la prioridad sin dato. Las variantes vacías de responsable se agrupan en «Por asignar», que ya existe en el registro.</p><p>El plazo calculado no es la alerta del Sheets: esta puede excluir casos por validar o con solución informada. Los filtros muestran ambos por separado. Ninguna normalización cambia el archivo original.</p></details>
+  </div></div>
+ </div>;
 }
