@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {DataComponent} from '../../data-app-public.jsx';
-import {dayLabel} from './crm-data.js';
+import {dayLabel,caseOrder} from './crm-data.js';
 import {cleanName,resultLabel,resultTone,eventLabel} from './crm-normalize.js';
 import './crm-timeline.css';
 
@@ -26,7 +26,7 @@ export function CrmTimeline({rows,queries,cutoff,open}){
  const first=dates[0],last=dates[dates.length-1],range=Math.max(6*86400000,stamp(last)-stamp(first));
  const position=date=>4+92*(stamp(date)-stamp(first))/range;
  const ticks=Array.from({length:7},(_,index)=>new Date(stamp(first)+range*index/6).toISOString().slice(0,10));
- const ordered=[...rows].sort((a,b)=>(a.ingreso||'9999').localeCompare(b.ingreso||'9999')||a.id.localeCompare(b.id));
+ const ordered=[...rows].sort(caseOrder);
  const shown=expanded?ordered:ordered.slice(0,16);
  const Event=({event})=>{const row=rows.find(item=>item.id===event.caso);return <li className="crm-history-event"><div><button className="crm-link" onClick={()=>open(event.caso)}>{event.caso} · {row?.asunto}</button><span className={`crm-tag crm-tag--${resultTone(row)}`}>{resultLabel(row)} · estado al corte</span></div><h3>{eventLabel(event.tipo)}</h3><p>{event.descripcion||'Sin descripción documentada.'}</p><small>{event.tipoFecha} · {event.vinculo}</small></li>;};
  if(!rows.length)return <DataComponent id="crm-linea-general" title="Línea de tiempo" queryId="incidencias" kind="table" variant="card" sourceRows={rows} displayRows={rows}><p className="crm-empty">No hay incidencias en esta selección. Limpia la búsqueda o cambia los filtros para ver la línea de tiempo.</p></DataComponent>;

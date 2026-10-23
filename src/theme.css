@@ -1,22 +1,26 @@
 :root {
   color-scheme: light dark;
   --adaptive-theme: 1;
+  --highlight: #d7fc51;
+  --on-highlight: #202908;
+  --feature-blue: #155bf5;
+  --on-feature-blue: #ffffff;
   --font-sans-default: -apple-system-body, ui-sans-serif, -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   --font-sans: var(--vscode-font-family, var(--font-sans-default));
-  --background: light-dark(#ffffff, #151f30);
-  --surface: light-dark(#f5f7fb, #111a29);
+  --background: light-dark(#ffffff, #151a24);
+  --surface: light-dark(#f5f6f9, #111621);
   --surface-raised: light-dark(#ffffff, #1b2940);
   --muted: light-dark(#edf1f7, #223149);
   --control: light-dark(#ffffff, #19263a);
   --control-hover: light-dark(#edf2fb, #293a55);
   --interaction-hover: var(--muted);
   --interaction-active: var(--control-hover);
-  --text: light-dark(#1b2c47, #e8eef9);
-  --secondary: light-dark(#55647a, #afbdd3);
+  --text: light-dark(#1d222d, #e8eef9);
+  --secondary: light-dark(#616976, #afbdd3);
   --border: light-dark(#dfe6ef, #2d3e57);
   --border-strong: light-dark(#8494ad, #6f84a4);
   --warning: light-dark(#855900, #e9c16d);
-  --accent: light-dark(#3159ca, #a7bcff);
+  --accent: light-dark(#1959e6, #a7bcff);
   --positive: light-dark(#147357, #78ddba);
   --negative: light-dark(#b33243, #ff9daa);
   --chart-1: light-dark(#3b60ce, #a1b8ff);
@@ -33,8 +37,8 @@
   --movement-positive: color-mix(in srgb, var(--positive) 75%, var(--text));
   --movement-negative: color-mix(in srgb, var(--negative) 75%, var(--text));
   --movement-total: var(--secondary);
-  --card-radius: 16px;
-  --data-card-radius: 14px;
+  --card-radius: 22px;
+  --data-card-radius: 22px;
   --data-card-background: var(--background);
   --control-radius: 8px;
   --mark-radius: 8;
@@ -44,5 +48,5 @@
 
 :root:not([data-app-theme]),
 :root:is([data-app-theme="original"], [data-app-theme="codex-classic"]) {
-  --dashboard-background: light-dark(color-mix(in srgb, var(--background) 98.6%, var(--text)), var(--background));
+  --dashboard-background: light-dark(color-mix(in srgb, var(--background) 96%, var(--text)), var(--background));
 }

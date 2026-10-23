@@ -21,7 +21,7 @@ export function CrmIcon({name, className=''}) {
 }
 
 export function CrmFilters({definitions, cases, values, onChange, search, setSearch, owner, setOwner}) {
-  const [expanded,setExpanded]=useState(()=>globalThis.matchMedia?.('(min-width: 900px)').matches??true);
+  const [expanded,setExpanded]=useState(false);
   const activeCount=definitions.filter(d=>values[d.id]&&values[d.id]!=='all').length+(owner!=='all'?1:0);
   const reset=()=>{definitions.forEach(d=>onChange(d.id,'all'));setOwner('all');setSearch('');};
   return <div className="crm-filter-panel" aria-label="Filtros del registro">

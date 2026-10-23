@@ -6,10 +6,12 @@ La publicación se sirve con GitHub Pages desde `main`, carpeta `/docs`. Los lec
 
 ## Vistas
 
-- **Resumen:** cumplimiento, abiertas, vencidas al corte, abiertas sin plazo, reprogramadas, distribución por etapa/módulo y registro de casos.
+- **Pendientes:** portada clara con azul y lima; abiertas por defecto, accesos rápidos a vencidas, bloqueantes, sin plazo, por validar, reprogramadas, cumplidas y todas. La tabla muestra responsable, compromiso, etapa y fotos disponibles. El orden inicial es bloqueo, vencimiento, prioridad documentada y fecha de compromiso.
 - **Etapas:** tablero de los estados actuales del registro. No supone una secuencia histórica de etapas.
-- **Plazos:** calendario de compromisos vigentes y casos abiertos sin fecha interpretable.
-- **Detalle y evidencias:** ficha, versiones del compromiso, línea de tiempo, relaciones, datos por aclarar y fotografías ampliables. Las fotos PC y Celular se agrupan solo si pertenecen a la misma comprobación.
+- **Línea de tiempo:** comparación de fechas por caso e historia documental por fecha. El orden inicial prioriza los pendientes.
+- **Todas las incidencias:** búsqueda del registro completo, incluidas las cumplidas.
+
+Al abrir un caso aparece una ventana emergente con Resumen, Línea de tiempo y Fotos. Cerrar la ventana conserva búsqueda, filtros, vista rápida, página y posición de la lista. Las fotos PC y Celular se agrupan solo si pertenecen a la misma comprobación. El diseño prioriza el uso en computadora.
 
 ## Reglas
 
